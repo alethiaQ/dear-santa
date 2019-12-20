@@ -5,6 +5,7 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import manageGifts from './reducers/manageGifts.js';
+import 'semantic-ui-css/semantic.min.css';
 import * as serviceWorker from './serviceWorker';
 
 // creating store with our gift reducer, added chrome react-redux devtool extension as callback to keep track of state in broswer console 

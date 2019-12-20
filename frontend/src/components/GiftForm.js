@@ -13,14 +13,14 @@ import { ADD_GIFT } from '../actions/gifts';
     };
 
     handleOnChange = event => {
-        console.log(event.target);
+        // pulling name and value attributes from JSX elements that will correspond too state
         const { name, value } = event.target;
         this.setState({ [name]: value });
     };
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state)
+        // action from prop used as a function that will dispatch this state to our reducers
         this.props.addGift(this.state);
         this.setState({
             item: '',
