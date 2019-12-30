@@ -1,12 +1,13 @@
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react';
-const Gifts = ({ item, price, id }) => (
+import { Card, Image } from 'semantic-ui-react';
+const Gifts = ({ name, price, id, handleDestroy }) => (
     <div>
      <Card>
         <Image  />
             <Card.Content>
-                <Card.Header>{item}</Card.Header>
-                <Card.Description>{price}</Card.Description>  
+                <Card.Header>{name}</Card.Header>
+                <Card.Description>{price}</Card.Description> 
+                <Card.Button onClick={() => handleDestroy(id)}> Done</Card.Button>
             </Card.Content>
      </Card>
     </div>

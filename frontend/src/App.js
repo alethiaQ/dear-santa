@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+
 import GiftContainer from './containers/GiftContainer';
 import GiftForm from './components/GiftForm';
 

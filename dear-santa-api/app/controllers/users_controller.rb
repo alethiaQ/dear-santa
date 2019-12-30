@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
     users = User.all
-
     render json: users
   end
 
@@ -24,25 +23,25 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    user = User.find_by(id: params[:id])
-    gift = user.gifts.find(id: params[:id])
+  # def update
+  #   user = User.find_by(id: params[:id])
+  #   gift = user.gifts.find(id: params[:id])
 
-    if gift.update(params)
-      render json: user
-    else
-      render json: user.errors
-    end
-  end
+  #   if gift.update(params)
+  #     render json: user
+  #   else
+  #     render json: user.errors
+  #   end
+  # end
 
-  def destroy
-    user.destroy
-  end
+  # def destroy
+  #   user.destroy
+  # end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :trees, :gifts)
+    params.require(:user).permit(:name, :email, :gifts)
   end
 
   def set_user

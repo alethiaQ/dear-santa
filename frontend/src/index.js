@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import manageGifts from './reducers/manageGifts.js';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import manageGifts from './reducers/gifts'
+import './index.css';
 import 'semantic-ui-css/semantic.min.css';
 import * as serviceWorker from './serviceWorker';
 
-// creating store with our gift reducer, added chrome react-redux devtool extension as callback to keep track of state in broswer console 
-const store = createStore(manageGifts,   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(manageGifts, applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>

@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { ADD_GIFT } from '../actions/gifts';
+import { createGift } from "../actions/gifts";
 import { Form } from 'semantic-ui-react'
 
  class GiftForm extends Component {
     state = {
-        item: "",
+        name: "",
         price: "",
-        // url: '',
-        // picture: '',
-        // is_for: '',
+        url: "",
+        img: "",
+        category: ""
         // progress: 'incomplete'
     };
 
@@ -22,32 +22,24 @@ import { Form } from 'semantic-ui-react'
     handleSubmit = event => {
         event.preventDefault();
         // action from prop used as a function that will dispatch this state to our reducers
-        this.props.addGift(this.state);
+        this.props.createGift({ ...this.state });
         this.setState({
-            item: '',
-            price: ''
+            name: "",
+            price: "",
+            url: "",
+            img: "",
+            category: ""
         });
     }
     render() {
         return (
             <div>
-               
-                {/* <Form.Group widths='equal'>
-          <Form.Input fluid label='First name' placeholder='First name' />
-          <Form.Input fluid label='Last name' placeholder='Last name' />
-          <Form.Select
-            fluid
-            label='Gender'
-            options={options}
-            placeholder='Gender'
-          />
-        </Form.Group> */}
                  <Form onSubmit={this.handleSubmit}>
                     <Form.Group widths='equal'>
                         <Form.Input fluid 
-                            label="Item"
-                            name="item"
-                            value={this.state.item}
+                            label="Name"
+                            name="name"
+                            value={this.state.name}
                             onChange={this.handleOnChange}
                             className="form-control"
                            
@@ -60,60 +52,47 @@ import { Form } from 'semantic-ui-react'
                         onChange={this.handleOnChange}
                         className="form-control"
                         />
-                        </Form.Group>
-
-                   
                     
-                    
-                    <Form.Group inline>
-                        <label>Gift group: </label>
-                        <Form.Radio
-                            label='Medium'
-                            value='md'
-                            // checked={value === 'md'}
-                            // onChange={this.handleChange}
+                        <Form.Input fluid
+                        label="Category"
+                         type="text"
+                        name="category"
+                        value={this.state.category}
+                        onChange={this.handleOnChange}
+                        className="form-control"
+                        />
+                        <Form.Input fluid
+                        label="Item URL"
+                         type="text"
+                        name="url"
+                        value={this.state.url}
+                        onChange={this.handleOnChange}
+                        className="form-control"
+                        />
+                        <Form.Input fluid
+                        label="Picture"
+                         type="text"
+                        name="img"
+                        value={this.state.img}
+                        onChange={this.handleOnChange}
+                        className="form-control"
                         />
                     </Form.Group>
+                  
                     <input type="submit" />
                 </Form>
             </div>
         );
     }
 };
-{/* <Form.Group inline>
-<label>Size</label>
-<Form.Radio
-  label='Small'
-  value='sm'
-  checked={value === 'sm'}
-  onChange={this.handleChange}
-/>
-<Form.Radio
-  label='Medium'
-  value='md'
-  checked={value === 'md'}
-  onChange={this.handleChange}
-/>
-<Form.Radio
-  label='Large'
-  value='lg'
-  checked={value === 'lg'}
-  onChange={this.handleChange}
-/>
-</Form.Group> */}
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addGift: gift => dispatch({type: ADD_GIFT, gift})
-    };
-};
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         addGift: gift => dispatch({type: ADD_GIFT, gift})
+//     };
+// };
 // const mapDispatchToProps = dispatch => (
 //     { addGift: gift => dispatch({ type: 'ADD_GIFT', gift }) }
 // );
-export default connect(null, mapDispatchToProps)(GiftForm);
-// ○ Item
-// ○ Price
-// ○ URL 
-// ○ Image 
-// ○ Intended for
-// Complete 
+export default connect(null, {createGift})(GiftForm);
