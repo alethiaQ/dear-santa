@@ -1,17 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  category: MyString
   name: MyString
   price: MyString
   url: MyString
   img: MyString
-  user: one
+  category: MyString
 
 two:
-  category: MyString
   name: MyString
   price: MyString
   url: MyString
   img: MyString
-  user: two
+  category: MyString

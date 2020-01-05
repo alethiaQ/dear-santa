@@ -1,4 +1,4 @@
 class Gift < ApplicationRecord
-  belongs_to :user
-  validates :category, inclusion: { in: %w{gift-for parents family friends other all} }
+  validates :name, :price, :category, presence: true
+  validates :category, inclusion: { in: %w(to-give friends other family parents kids) }
 end

@@ -2,14 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import manageGifts from './reducers/gifts'
+import { store } from "./store";
+
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
 
-const store = createStore(manageGifts, applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>
@@ -21,4 +19,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// serviceWorker.unregister();

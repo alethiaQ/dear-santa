@@ -1,17 +1,24 @@
 class GiftsController < ApplicationController
   before_action :set_gift, only: [:show, :update, :destroy]
-  #    get /gifts
+
   def index
     gifts = Gift.all
-    render json: gifts, except: [:created_at, :updated_at]
+    render json: gifts
   end
 
-  #   get /gifts/:id
   def show
     render json: @gift.slice(:id, :name, :price, :category, :url, :img)
   end
 
-  # patch gifts/:id
+  def create
+    @gift = Gift.find_or_create_by(gift_params)
+    if @gift
+      render json: @gift
+    else
+      render json: @gift.errors
+    end
+  end
+
   def update
     if @gift.update(gift_params)
       render json: @gift
@@ -20,11 +27,10 @@ class GiftsController < ApplicationController
     end
   end
 
-  # delete /gifts/:id
   def destroy
     @gift.destroy
   end
-
+ 
   private
 
   def set_gift
@@ -32,6 +38,6 @@ class GiftsController < ApplicationController
   end
 
   def gift_params
-    params.require(:gift).permit(:name, :category, :price, :url, :img, :user_id)
+    params.require(:gift).permit(:name, :category, :price, :url, :img, :id)
   end
 end

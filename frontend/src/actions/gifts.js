@@ -4,11 +4,11 @@ export const REMOVE_GIFT = "REMOVE_GIFT";
 export const SET_GIFTS = "SET_GIFTS";
  
 
-export const addGift = gift => {
+export const addGift = (gift) => {
     return { type: ADD_GIFT, gift };
 }; 
 
-export const removeGift = id => {
+export const deleteGift = id => {
     return { type: REMOVE_GIFT, id }
 }; 
 // accepts our fetched data as an argument, which we will send to our reducer
@@ -51,6 +51,6 @@ export const destroyGift = id => {
         fetch(`http://localhost:3001/gifts/${id}`, {
             method: "DELETE"
         }).then(() => {
-            dispatch(removeGift(id));
+            dispatch(deleteGift(id));
         });
 };
