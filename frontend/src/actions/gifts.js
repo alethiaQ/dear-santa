@@ -2,7 +2,7 @@
 export const ADD_GIFT = "ADD_GIFT"; 
 export const REMOVE_GIFT = "REMOVE_GIFT";
 export const SET_GIFTS = "SET_GIFTS";
- 
+
 
 export const addGift = (gift) => {
     return { type: ADD_GIFT, gift };

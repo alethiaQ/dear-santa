@@ -15,6 +15,7 @@ class GiftContainer extends Component {
        
         return (
             <div>
+                {/* Link to gift list possibly */}
                 {this.props.gifts.map(gift => (
                     <GiftCard
                     key={gift.id}
@@ -22,6 +23,7 @@ class GiftContainer extends Component {
                     handleDestroy={this.props.destroyGift}
                     />
                 ))}
+                
             </div>
         )
     };

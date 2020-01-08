@@ -8,7 +8,6 @@ import { Form } from 'semantic-ui-react'
         name: "",
         price: "",
         url: "",
-        img: "",
         category: ""
         // progress: 'incomplete'
     };
@@ -27,7 +26,6 @@ import { Form } from 'semantic-ui-react'
             name: "",
             price: "",
             url: "",
-            img: "",
             category: ""
         });
     }
@@ -69,14 +67,7 @@ import { Form } from 'semantic-ui-react'
                         onChange={this.handleOnChange}
                         className="form-control"
                         />
-                        <Form.Input fluid
-                        label="Picture"
-                         type="text"
-                        name="img"
-                        value={this.state.img}
-                        onChange={this.handleOnChange}
-                        className="form-control"
-                        />
+                       
                     </Form.Group>
                   
                     <input type="submit" />
