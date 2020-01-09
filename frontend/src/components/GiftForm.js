@@ -32,7 +32,7 @@ import { Form } from 'semantic-ui-react'
     render() {
         return (
             <div>
-                 <Form onSubmit={this.handleSubmit}>
+                 <Form size='tiny' onSubmit={this.handleSubmit}>
                     <Form.Group widths='equal'>
                         <Form.Input fluid 
                             label="Name"
