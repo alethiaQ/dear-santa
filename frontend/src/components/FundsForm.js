@@ -1,12 +1,13 @@
 import React, { Component } from 'react'; 
 import { Form } from 'semantic-ui-react'
-import { setFunds } from '../actions/funds'; 
+import { createFund } from '../actions/funds'; 
 import { connect } from 'react-redux';
+// import FundsCard from './FundsCard';
 
 
- class Funds extends Component {
+ class FundsForm extends Component {
     state = {
-        amount: 0
+        amount: ""
     }
     handleOnChange = event => {
         const { name, value } = event.target;
@@ -15,13 +16,15 @@ import { connect } from 'react-redux';
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.setFunds({ ...this.state });
-        
-    };
+        this.props.createFund({ ...this.state });
+        this.setState({
+            amount: ""
+        });
+    }
     render() {
         return (
             <div> 
-                <Form onSubmit={this.handleSubmit}>
+                <Form size='tiny' onSubmit={this.handleSubmit}>
                     <Form.Group widths='equal'>
                     <Form.Input fluid 
                             label="Total Funds"
@@ -30,12 +33,12 @@ import { connect } from 'react-redux';
                             onChange={this.handleOnChange}
                             className="form-control"
                         />
-
                     <input type="submit" />
                     </Form.Group>
                 </Form>  
+             
             </div>
         )
     }
- }
-export default connect(null, { setFunds })(Funds);
+}; 
+export default connect(null,{ createFund })(FundsForm);

@@ -1,4 +1,5 @@
-// exporting action type as a const so its less prone to typos and unnecessary bugs 
+// exporting action type as a const so its less prone to typos and unnecessary bugs
+import { updateFunds } from './funds';
 export const ADD_GIFT = "ADD_GIFT"; 
 export const REMOVE_GIFT = "REMOVE_GIFT";
 export const SET_GIFTS = "SET_GIFTS";
@@ -40,6 +41,7 @@ export const createGift = gift => {
             .then(resp => resp.json())
             .then(gift => {
                 dispatch(addGift(gift));
+                dispatch(updateFunds(gift));
             });
     }
 };

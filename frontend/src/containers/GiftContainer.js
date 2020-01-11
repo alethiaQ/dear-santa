@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-import GiftShow from '../components/GiftShow';
 import GiftList from '../components/GiftList';
 import GiftForm from '../components/GiftForm';
-import Funds from '../components/Funds';
+import FundsContainer from './FundsContainer';
 import { Tab } from 'semantic-ui-react';
 import { fetchGifts, destroyGift } from "../actions/gifts";
+import FundsCard from '../components/FundsCard';
 
 class GiftContainer extends Component {
 
@@ -17,7 +17,7 @@ class GiftContainer extends Component {
         const panes = [
             { menuItem: 'Gift List', render: () => <GiftList gifts={this.props.gifts} /> },
             { menuItem: 'New Gift', render: () => <Tab.Pane><GiftForm /></Tab.Pane> },
-            {menuItem: 'Funds', render: () => <Tab.Pane><Funds /></Tab.Pane>}
+            {menuItem: 'Funds', render: () => <Tab.Pane><FundsContainer /></Tab.Pane>}
         ]
         return (
             <div>

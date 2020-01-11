@@ -1,11 +1,16 @@
-import { SET_FUNDS } from "../actions/funds";
+import { SET_FUNDS, UPDATE_FUNDS, ADD_FUND } from "../actions/funds";
 
 export default (state = [], action) => {
-    let idx; 
+    let idx;
+
     switch (action.type) {
+        case ADD_FUND:
+            return [...state, action.fund];
         case SET_FUNDS:
-            return [...state, action.amount]; 
+            return action.funds;
+        case UPDATE_FUNDS:
+            return [...state, action.fund];
         default:
-            return state; 
+            return state;
     }
-}
+};
