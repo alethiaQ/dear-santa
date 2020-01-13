@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import GiftList from '../components/GiftList';
@@ -8,26 +9,24 @@ import GiftShow from '../components/GiftShow';
 import { Tab } from 'semantic-ui-react';
 import { fetchGifts, destroyGift } from "../actions/gifts";
 class GiftContainer extends Component {
-
+    
     componentDidMount() {
         this.props.fetchGifts();
     };
     render() {
         const panes = [
-            { menuItem: 'Gift List', render: () => <GiftList gifts={this.props.gifts} /> },
+            { menuItem: 'Gift List', render: () => <Tab.Pane> <GiftList gifts={this.props.gifts} /></Tab.Pane> },
             { menuItem: 'New Gift', render: () => <Tab.Pane><GiftForm /></Tab.Pane> },
         ]
         return (
             <div>
+                 <Route path={`/gifts/:id`} render={routerProps => 
+                     <GiftShow {...routerProps} gifts={this.props.gifts} /> }
+                />
                 <div className="container">
                 <Tab menu={{ fluid: true, vertical: true, tabular: true }} grid={{ paneWidth: 12, tabWidth: 2 }} panes={panes} />
                 </div>
-                <Route path="/gifts/:id" render={props => {
-                    return (
-                        <GiftShow gift={this.props.gifts.find(g => g.id === props.match.params.id)} />
-                    );
-                }}
-                />
+               
 
             </div>
         );

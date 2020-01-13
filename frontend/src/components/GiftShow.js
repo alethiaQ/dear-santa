@@ -1,9 +1,16 @@
 import React from 'react';
-
-const GiftShow = ({gift}) => {
+import { Card } from 'semantic-ui-react';
+const GiftShow = ({ match, gifts }) => {
+    const gift = gifts[match.params.id]
     return (
-        <div className="ui centered card item">
-            <h3 className="ui header">{ gift.name }</h3>
+        <div>
+            <div className="ui container center">
+            <Card.Content>
+            <h3>{gift.name}</h3>
+                <p>Category: {gift.category} </p>
+             
+                </Card.Content>
+            </div>
         </div>
     );
 }

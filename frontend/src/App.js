@@ -5,8 +5,8 @@ import {
 } from 'react-router-dom';
 import GiftContainer from './containers/GiftContainer';
 // import GiftForm from './components/GiftForm';
-// import FundsContainer from './containers/FundsContainer';
-import Home from "./Home";
+import FundsContainer from './containers/FundsContainer';
+// import Home from "./Home";
 
 class App extends Component {
 
@@ -14,9 +14,9 @@ class App extends Component {
     return (
       <Router>
         <div >  
-          <Route exact path="/" component={Home} />
-          <Route path='/gifts' render={routerProps => <GiftContainer {...routerProps} />}/>         
-
+          {/* <Route path="/" component={Home} /> */}
+          <Route path="/" render={routerProps => <GiftContainer {...routerProps} />}/>         
+          <FundsContainer />
         </div>
       </Router>
     );

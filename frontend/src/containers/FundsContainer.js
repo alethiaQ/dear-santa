@@ -4,14 +4,14 @@ import FundsForm from '../components/FundsForm';
 import FundsCard from '../components/FundsCard';
 import { fetchFunds } from "../actions/funds";
 class FundsContainer extends Component {
+
     componentDidMount() {
         this.props.fetchFunds();
-    };
-    
-    
+    };  
+
     render() {
         return (
-        <div>
+            <div>
             <FundsForm />
             <FundsCard funds={this.props.funds}/>
             </div>
