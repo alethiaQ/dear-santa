@@ -9,7 +9,7 @@ export const updateFundLocal = fund => {
 export const setFunds = funds => {
     return { type: SET_FUNDS, funds }
 };
-// once a new gift is created, its price will be sent with the action 
+// once a new gift is created, the gift obj data is sent to the updateFunds endpoint to deduct the price amount from total funds
 export const updateFunds = (gift) => {
     return dispatch =>
         fetch("http://localhost:3001/updateFunds", {

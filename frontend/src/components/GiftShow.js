@@ -1,9 +1,9 @@
 import React from 'react';
 
-const GiftShow = ({match, gifts}) => {
+const GiftShow = ({gift}) => {
     return (
-        <div>
-            <h3>{gifts[match.params.id].title }</h3>
+        <div className="ui centered card item">
+            <h3 className="ui header">{ gift.name }</h3>
         </div>
     );
 }
