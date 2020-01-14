@@ -1,7 +1,7 @@
 // exporting action type as a const so its less prone to typos and unnecessary bugs
 import { updateFunds } from './funds';
 export const ADD_GIFT = "ADD_GIFT"; 
-export const REMOVE_GIFT = "REMOVE_GIFT";
+export const DELETE_GIFT = "DELETE_GIFT";
 export const SET_GIFTS = "SET_GIFTS";
 
 
@@ -10,7 +10,7 @@ export const addGift = (gift) => {
 }; 
 
 export const deleteGift = id => {
-    return { type: REMOVE_GIFT, id }
+    return { type: DELETE_GIFT, id }
 }; 
 // accepts our fetched data as an argument, which we will send to our reducer
 

@@ -1,4 +1,4 @@
-import { ADD_GIFT, REMOVE_GIFT, SET_GIFTS } from "../actions/gifts";
+import { ADD_GIFT, DELETE_GIFT, SET_GIFTS } from "../actions/gifts";
 
 
 export default  (state = [], action) => {
@@ -9,10 +9,10 @@ export default  (state = [], action) => {
         case ADD_GIFT:
             return [...state, action.gift ];
         // delete gift from collection based on ID #
-        case REMOVE_GIFT:   
-            gift = state.find(g => g.id === action.id);
-            idx = state.indexOf(gift);
-            return [...state.slice(0, idx), ...state.slice(idx + 1)];
+        case DELETE_GIFT:
+            return [ ...state.filter(g => g.id !== action.id)
+            ];
+   
         // after fetch grabs gift collection, we set them here to be displayed
         case SET_GIFTS:
             return action.gifts;

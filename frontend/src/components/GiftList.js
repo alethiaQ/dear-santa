@@ -3,13 +3,14 @@ import { Card } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 // import GiftShow from "./GiftShow";
 const GiftList = ({gifts}) => {
-    const renderList = gifts.map(gift =>
+    const renderList = Object.keys(gifts).map(giftID =>
         <Card>
-            
-            <Card.Header><Link key={gift.id} to={`/gifts/${gift.id}`}>{gift.name}</Link></Card.Header>
+            <Card.Header>
+                <Link key={giftID} to={`/gifts/${giftID}`}>{gifts[giftID].name}</Link>
+            </Card.Header>
             <Card.Content>
-                <Card.Description>{gift.price}</Card.Description>
-                <Card.Description>Category: {gift.category}</Card.Description>
+                <Card.Description>{gifts[giftID].price}</Card.Description>
+                <Card.Description>Category: {gifts[giftID].category}</Card.Description>
              </Card.Content>
          </Card>
      );

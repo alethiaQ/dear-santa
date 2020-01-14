@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import GiftList from '../components/GiftList';
@@ -21,7 +20,7 @@ class GiftContainer extends Component {
         return (
             <div>
                  <Route path={`/gifts/:id`} render={routerProps => 
-                     <GiftShow {...routerProps} gifts={this.props.gifts} /> }
+                    <GiftShow {...routerProps} gifts={this.props.gifts} handleDestroy={this.props.destroyGift}/> }
                 />
                 <div className="container">
                 <Tab menu={{ fluid: true, vertical: true, tabular: true }} grid={{ paneWidth: 12, tabWidth: 2 }} panes={panes} />
