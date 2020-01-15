@@ -5,8 +5,7 @@ const GiftShow = ({ match, gifts, handleDestroy }) => {
     return (
         <div>
             <div >
-                <Card color='red'>
-                    
+                <Card color='red'>                    
                     <Card.Content textAlign="right">
                     <Image src="/defaultPresent.png" size='tiny' wrapped floated='left' />
                         <Card.Header>{gift.name}</Card.Header>

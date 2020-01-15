@@ -9,7 +9,7 @@ const GiftList = ({gifts}) => {
                 <Link key={giftID} to={`/gifts/${giftID}`} style={{color: 'green'}}>{gifts[giftID].name}</Link>
             </Card.Header>
             <Card.Content>
-                <Card.Description>{gifts[giftID].price}</Card.Description>
+                <Card.Description>Price: ${gifts[giftID].price}</Card.Description>
                 <Card.Description>Category: {gifts[giftID].category}</Card.Description>
              </Card.Content>
          </Card>

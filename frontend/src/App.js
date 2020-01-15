@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import GiftContainer from './containers/GiftContainer';
 import FundsContainer from './containers/FundsContainer';
-import { Grid, Menu, Icon } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import NavBar from './components/NavBar';
 import About from './components/About';
 

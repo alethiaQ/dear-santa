@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { createGift } from "../actions/gifts";
-import { Form, Radio } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 
  class GiftForm extends Component {
     state = {
@@ -11,11 +11,7 @@ import { Form, Radio } from 'semantic-ui-react'
         category: ""
         // progress: 'incomplete'
     };
-     handleRadio = event => {
-         this.setState({
-             category: event.target.value
-         });
-    }
+    
     handleOnChange = event => {
         // pulling name and value attributes from JSX elements that will correspond too state
         const { name, value } = event.target;
@@ -63,52 +59,15 @@ import { Form, Radio } from 'semantic-ui-react'
                         />
                     </Form.Group>
                     <Form.Group inline>
-                        <label>Category</label>
-                        <Form.Field
-                        control={Radio}
-                        label="parents"
-                        name="category"
-                        value="parents"
-                        // checked={value === 'parents'}
-                        onChange={this.handleRadio}
-                        className="form-control"
-                        />
-                         <Form.Field
-                        control={Radio}
-                        label="friends"
-                        name="category"
-                        value="friends"
-                        // checked={value === 'friends'}
-                        onChange={this.handleRadio}
-                        className="form-control"
-                        />
-                         <Form.Field
-                        control={Radio}
-                        label="family"
-                        name="category"
-                        value="family"
-                        // checked={value === 'family'}
-                        onChange={this.handleRadio}
-                        className="form-control"
-                        />
-                         <Form.Field
-                        control={Radio}
-                        label="kids"
-                        name="category"
-                        value="kids"
-                        // checked={value === 'kids'}
-                        onChange={this.handleRadio}
-                        className="form-control"
-                        />
-                         <Form.Field
-                        control={Radio}
-                        label="other"
-                        name="category"
-                        value="other"
-                        // checked={value === 'other'}
-                        onChange={this.handleRadio}
-                        className="form-control"
-                        />                      
+                        <label>Category:</label>
+                        <select value={this.state.category} onChange={this.handleOnChange} name="category">
+                            <option value="parents">Parents</option>
+                            <option value="friends">Friends</option>
+                            <option value="family">Family</option>
+                            <option value="kids">Kids</option>
+                            <option value="other">Other</option>
+
+                        </select>              
                     </Form.Group>
                   
                     <input type="submit" />
@@ -118,12 +77,6 @@ import { Form, Radio } from 'semantic-ui-react'
     }
 };
 
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         addGift: gift => dispatch({type: ADD_GIFT, gift})
-//     };
-// };
 // const mapDispatchToProps = dispatch => (
 //     { addGift: gift => dispatch({ type: 'ADD_GIFT', gift }) }
 // );
