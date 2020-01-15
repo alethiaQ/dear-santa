@@ -23,7 +23,7 @@ class GiftContainer extends Component {
                     <GiftShow {...routerProps} gifts={this.props.gifts} handleDestroy={this.props.destroyGift}/> }
                 />
                 <div className="container">
-                <Tab menu={{ fluid: true, vertical: true, tabular: true }} grid={{ paneWidth: 12, tabWidth: 2 }} panes={panes} />
+                <Tab menu={{ fluid: true, vertical: true}} grid={{ paneWidth: 12, tabWidth: 2 }} menuPosition='left' panes={panes} />
                 </div>
                
 

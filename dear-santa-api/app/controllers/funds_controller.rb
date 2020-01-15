@@ -23,8 +23,8 @@ class FundsController < ApplicationController
     currentAmnt = fund.amount.to_i
     deductAmnt = params[:price]
     amount = currentAmnt - deductAmnt.to_i
-    Fund.create(amount: amount)
-    render json: amount
+    newFund = Fund.create(amount: amount)
+    render json: newFund
   end
 
   private

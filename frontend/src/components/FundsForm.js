@@ -25,16 +25,16 @@ import { connect } from 'react-redux';
         return (
             <div> 
                 <Form size='tiny' onSubmit={this.handleSubmit}>
-                    <Form.Group widths='equal'>
+                    
                     <Form.Input fluid 
-                            label="Total Funds"
+                            label="Funds $$"
                             name="amount"
                             value={this.state.amount}
                             onChange={this.handleOnChange}
                             className="form-control"
                         />
                     <input type="submit" />
-                    </Form.Group>
+                    
                 </Form>  
              
             </div>

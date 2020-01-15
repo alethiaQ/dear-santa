@@ -1,15 +1,22 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 const GiftShow = ({ match, gifts, handleDestroy }) => {
     const gift = gifts[match.params.id]
     return (
         <div>
-            <div className="ui container center">
-            <Card.Content>
-            <h3>{gift.name}</h3>
-                <p>Category: {gift.category} </p>
-                <button onClick={() => handleDestroy(gift.id)}>Delete</button>
-                </Card.Content>
+            <div >
+                <Card color='red'>
+                    
+                    <Card.Content textAlign="right">
+                    <Image src="/defaultPresent.png" size='tiny' wrapped floated='left' />
+                        <Card.Header>{gift.name}</Card.Header>
+                        <Card.Meta>Category: {gift.category}</Card.Meta>
+                        <Card.Description>
+                            Price: {gift.price}
+                        </Card.Description>
+                        <button onClick={() => handleDestroy(gift.id)}>Delete</button>
+                    </Card.Content>
+                </Card>
             </div>
         </div>
     );

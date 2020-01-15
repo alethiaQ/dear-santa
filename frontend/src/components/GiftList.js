@@ -6,7 +6,7 @@ const GiftList = ({gifts}) => {
     const renderList = Object.keys(gifts).map(giftID =>
         <Card>
             <Card.Header>
-                <Link key={giftID} to={`/gifts/${giftID}`}>{gifts[giftID].name}</Link>
+                <Link key={giftID} to={`/gifts/${giftID}`} style={{color: 'green'}}>{gifts[giftID].name}</Link>
             </Card.Header>
             <Card.Content>
                 <Card.Description>{gifts[giftID].price}</Card.Description>

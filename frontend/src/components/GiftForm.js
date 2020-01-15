@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { createGift } from "../actions/gifts";
-import { Form } from 'semantic-ui-react'
+import { Form, Radio } from 'semantic-ui-react'
 
  class GiftForm extends Component {
     state = {
@@ -11,7 +11,11 @@ import { Form } from 'semantic-ui-react'
         category: ""
         // progress: 'incomplete'
     };
-
+     handleRadio = event => {
+         this.setState({
+             category: event.target.value
+         });
+    }
     handleOnChange = event => {
         // pulling name and value attributes from JSX elements that will correspond too state
         const { name, value } = event.target;
@@ -39,23 +43,13 @@ import { Form } from 'semantic-ui-react'
                             name="name"
                             value={this.state.name}
                             onChange={this.handleOnChange}
-                            className="form-control"
-                           
+                            className="form-control" 
                         />
                         <Form.Input fluid
                         label="Price"
                          type="text"
                         name="price"
                         value={this.state.price}
-                        onChange={this.handleOnChange}
-                        className="form-control"
-                        />
-                    
-                        <Form.Input fluid
-                        label="Category"
-                         type="text"
-                        name="category"
-                        value={this.state.category}
                         onChange={this.handleOnChange}
                         className="form-control"
                         />
@@ -67,7 +61,54 @@ import { Form } from 'semantic-ui-react'
                         onChange={this.handleOnChange}
                         className="form-control"
                         />
-                       
+                    </Form.Group>
+                    <Form.Group inline>
+                        <label>Category</label>
+                        <Form.Field
+                        control={Radio}
+                        label="parents"
+                        name="category"
+                        value="parents"
+                        // checked={value === 'parents'}
+                        onChange={this.handleRadio}
+                        className="form-control"
+                        />
+                         <Form.Field
+                        control={Radio}
+                        label="friends"
+                        name="category"
+                        value="friends"
+                        // checked={value === 'friends'}
+                        onChange={this.handleRadio}
+                        className="form-control"
+                        />
+                         <Form.Field
+                        control={Radio}
+                        label="family"
+                        name="category"
+                        value="family"
+                        // checked={value === 'family'}
+                        onChange={this.handleRadio}
+                        className="form-control"
+                        />
+                         <Form.Field
+                        control={Radio}
+                        label="kids"
+                        name="category"
+                        value="kids"
+                        // checked={value === 'kids'}
+                        onChange={this.handleRadio}
+                        className="form-control"
+                        />
+                         <Form.Field
+                        control={Radio}
+                        label="other"
+                        name="category"
+                        value="other"
+                        // checked={value === 'other'}
+                        onChange={this.handleRadio}
+                        className="form-control"
+                        />                      
                     </Form.Group>
                   
                     <input type="submit" />

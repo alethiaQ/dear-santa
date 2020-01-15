@@ -4,9 +4,10 @@ import {
   Route
 } from 'react-router-dom';
 import GiftContainer from './containers/GiftContainer';
-// import GiftForm from './components/GiftForm';
 import FundsContainer from './containers/FundsContainer';
-// import Home from "./Home";
+import { Grid, Menu, Icon } from 'semantic-ui-react';
+import NavBar from './components/NavBar';
+import About from './components/About';
 
 class App extends Component {
 
@@ -14,9 +15,16 @@ class App extends Component {
     return (
       <Router>
         <div >  
-          {/* <Route path="/" component={Home} /> */}
-          <Route path="/" render={routerProps => <GiftContainer {...routerProps} />}/>         
-          <FundsContainer />
+          <NavBar />      
+          <Route exact path="/about" component={About} />
+          <Grid relaxed columns={2} divided padded>
+            <Grid.Column>
+              <Route path="/" render={routerProps => <GiftContainer {...routerProps} />} />   
+            </Grid.Column> 
+            <Grid.Column width={4}>  
+              <FundsContainer />
+            </Grid.Column>
+          </Grid>
         </div>
       </Router>
     );
