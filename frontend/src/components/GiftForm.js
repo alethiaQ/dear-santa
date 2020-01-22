@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { createGift } from "../actions/gifts";
-import { Form } from 'semantic-ui-react'
+import { Form, Message} from 'semantic-ui-react'
 
  class GiftForm extends Component {
     state = {
@@ -9,7 +9,7 @@ import { Form } from 'semantic-ui-react'
         price: "",
         url: "",
         category: ""
-        // progress: 'incomplete'
+        
     };
     
     handleOnChange = event => {
@@ -32,6 +32,11 @@ import { Form } from 'semantic-ui-react'
     render() {
         return (
             <div>
+                <Message positive>
+                    <Message.Header>Important!</Message.Header>
+                    <p>- Do not input a '$' into the price field. Acceptable price input: 50.00</p>
+                    <p>- Category represents the group intended to buy/receive the item.</p>
+                </Message>
                  <Form size='tiny' onSubmit={this.handleSubmit}>
                     <Form.Group widths='equal'>
                         <Form.Input fluid 

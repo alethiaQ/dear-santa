@@ -14,7 +14,7 @@ const FundsCard = ({ funds }) => {
     
     return (
         <div>
-            <Card>
+            <Card color='green'>
                 <Card.Content>
                     <Card.Header>Funds Tracker: </Card.Header>
                 </Card.Content>

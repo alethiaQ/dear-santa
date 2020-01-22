@@ -1,25 +1,29 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 // import GiftShow from "./GiftShow";
-const GiftList = ({gifts}) => {
-    const renderList = Object.keys(gifts).map(giftID =>
-        <Card>
-            <Card.Header>
-                <Link key={giftID} to={`/gifts/${giftID}`} style={{color: 'green'}}>{gifts[giftID].name}</Link>
-            </Card.Header>
-            <Card.Content>
-                <Card.Description>Price: ${gifts[giftID].price}</Card.Description>
-                <Card.Description>Category: {gifts[giftID].category}</Card.Description>
-             </Card.Content>
-         </Card>
-     );
+const GiftList = ({gifts, handleDestroy}) => {
+ 
+        const renderList = Object.keys(gifts).map(giftID =>
+            <Card color='green'>
+                <Card.Header>
+                    <Link key={giftID} to={`/gifts/${giftID}`} style={{color: 'green'}}>{gifts[giftID].name}</Link>
+                </Card.Header>
+                <Card.Content>
+                    <Card.Description>Price: ${gifts[giftID].price}</Card.Description>
+                    <Card.Description>Category: {gifts[giftID].category}</Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                    <Button basic size="mini" floated='right' circular color="red" onClick={() => handleDestroy(gifts[giftID].id)}>Delete</Button>
+                </Card.Content>
+             </Card>
+         );
         return (
             <div>
                 {renderList}
             </div>
         )
-   
+    
   
 };
 

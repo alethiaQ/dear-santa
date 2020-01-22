@@ -18,10 +18,10 @@ class App extends Component {
           <NavBar />      
           <Route exact path="/about" component={About} />
           <Grid relaxed columns={2} divided padded>
-            <Grid.Column>
+            <Grid.Column width={10}>
               <Route path="/" render={routerProps => <GiftContainer {...routerProps} />} />   
             </Grid.Column> 
-            <Grid.Column width={4}>  
+            <Grid.Column width={3} floated="right">  
               <FundsContainer />
             </Grid.Column>
           </Grid>

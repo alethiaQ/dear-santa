@@ -14,16 +14,16 @@ class GiftContainer extends Component {
     };
     render() {
         const panes = [
-            { menuItem: 'Gift List', render: () => <Tab.Pane> <GiftList gifts={this.props.gifts} /></Tab.Pane> },
+            { menuItem: 'Gift-Bag', render: () => <Tab.Pane> <GiftList gifts={this.props.gifts} handleDestroy={this.props.destroyGift}/></Tab.Pane> },
             { menuItem: 'New Gift', render: () => <Tab.Pane><GiftForm /></Tab.Pane> },
         ]
         return (
             <div>
-                 <Route path={`/gifts/:id`} render={routerProps => 
-                    <GiftShow {...routerProps} gifts={this.props.gifts} handleDestroy={this.props.destroyGift}/> }
+                 <Route exact path={`/gifts/:id`} render={routerProps => 
+                    <GiftShow {...routerProps} gifts={this.props.gifts} /> }
                 />
                 <div className="container">
-                <Tab menu={{ fluid: true, vertical: true}} grid={{ paneWidth: 12, tabWidth: 2 }} menuPosition='left' panes={panes} />
+                <Tab menu={{ secondary: true, pointing: true }} grid={{ paneWidth: 12, tabWidth: 2 }}  panes={panes} />
                 </div>
                
 

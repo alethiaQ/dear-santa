@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { Form } from 'semantic-ui-react'
+import { Form, Pop, Popup } from 'semantic-ui-react'
 import { createFund } from '../actions/funds'; 
 import { connect } from 'react-redux';
 // import FundsCard from './FundsCard';
@@ -24,19 +24,27 @@ import { connect } from 'react-redux';
     render() {
         return (
             <div> 
-                <Form size='tiny' onSubmit={this.handleSubmit}>
+                <Popup trigger={
+                    <Form size='tiny' onSubmit={this.handleSubmit}>
                     
-                    <Form.Input fluid 
+                        <Form.Input fluid
                             label="Funds $$"
                             name="amount"
                             value={this.state.amount}
                             onChange={this.handleOnChange}
                             className="form-control"
                         />
-                    <input type="submit" />
+                        <input type="submit" />
                     
-                </Form>  
-             
+                    </Form>
+                } >
+                    <Popup.Header>Important!</Popup.Header>
+                    <Popup.Content>
+                        <p>** Do not add commas or $ to funds input.** </p>
+                        <p>Entering a new amount will reset the total funds to the amount just entered, so if you are simply adding an amount to the current total, make sure to enter the entire total... not just the amount to be added.</p>
+                        <p>After a new gift is added, the price will automatically be deducted from your total fund amount!</p>
+                    </Popup.Content>
+                </Popup>
             </div>
         )
     }
