@@ -3,7 +3,7 @@ import { updateFunds } from './funds';
 export const ADD_GIFT = "ADD_GIFT"; 
 export const DELETE_GIFT = "DELETE_GIFT";
 export const SET_GIFTS = "SET_GIFTS";
-
+export const LIKE_GIFT = "LIKE_GIFT";
 
 export const addGift = (gift) => {
     return { type: ADD_GIFT, gift };
@@ -55,4 +55,8 @@ export const destroyGift = id => {
         }).then(() => {
             dispatch(deleteGift(id));
         });
+};
+// action creator for like attribute--- not connected to backend by direction from Proj.Reviewer. Bc of this, we must explicitly dispatch the action from relevant comp, unlike other functions seen above where actions are dispatched after fetches are resolved. 
+export const likeGift = gift => {
+    return { type: LIKE_GIFT, gift };
 };
