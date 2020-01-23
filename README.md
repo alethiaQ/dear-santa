@@ -1,14 +1,15 @@
 # dear-santa
-Holiday Gift List creator using React-redux JS for frontend and a Rails API backend
+Holiday Gift List manager and Funds tracker. The frontend was composed using React.js/Redux.js. For the backend, data is created/stored using Rails API.
 
-<<<<<<< HEAD
 ## Installation and Usage
 
-First, clone down this repo- frontend and API included within. Then run the following in your terminal: 
+First, clone down this repo- frontend and API included. Then run the following in your terminal: 
     
     $ cd dear-santa-api
     $ bundle install
+    $ rails db:migrate
     $ rails s -p 3001
+    open a new terminal (command + T for Mac users)
     $ cd .. 
     $ cd frontend 
     $ npm install 
