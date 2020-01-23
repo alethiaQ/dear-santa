@@ -56,7 +56,7 @@ export const destroyGift = id => {
             dispatch(deleteGift(id));
         });
 };
-// action creator for like attribute--- not connected to backend by direction from Proj.Reviewer. Bc of this, we must explicitly dispatch the action from relevant comp, unlike other functions seen above where actions are dispatched after fetches are resolved. 
-export const likeGift = gift => {
-    return { type: LIKE_GIFT, gift };
+// action creator for like attribute
+export const likeGift = id => {
+    return { type: LIKE_GIFT, id };
 };

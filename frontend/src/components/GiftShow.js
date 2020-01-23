@@ -13,6 +13,7 @@ const GiftShow = ({ match, gifts }) => {
                         <Card.Description>
                             <p>Price: ${gift.price}</p>
                             <p>URL: {gift.url}</p>
+                            <p>Likes: {gift.likes}</p>
                         </Card.Description>
                         
                     </Card.Content>

@@ -26,7 +26,8 @@ import { Form, Message} from 'semantic-ui-react'
             name: "",
             price: "",
             url: "",
-            category: ""
+            category: "",
+            
         });
     }
     render() {

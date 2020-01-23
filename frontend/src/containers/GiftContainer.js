@@ -6,7 +6,7 @@ import GiftForm from '../components/GiftForm';
 import GiftShow from '../components/GiftShow';
 // import FundsContainer from './FundsContainer';
 import { Tab } from 'semantic-ui-react';
-import { fetchGifts, destroyGift } from "../actions/gifts";
+import { fetchGifts, destroyGift, likeGift } from "../actions/gifts";
 class GiftContainer extends Component {
     
     componentDidMount() {
@@ -14,7 +14,7 @@ class GiftContainer extends Component {
     };
     render() {
         const panes = [
-            { menuItem: 'Gift-Bag', render: () => <Tab.Pane> <GiftList gifts={this.props.gifts} handleDestroy={this.props.destroyGift}/></Tab.Pane> },
+            { menuItem: 'Gift-Bag', render: () => <Tab.Pane> <GiftList gifts={this.props.gifts} handleDestroy={this.props.destroyGift} handleLike={this.props.likeGift} /></Tab.Pane> },
             { menuItem: 'New Gift', render: () => <Tab.Pane><GiftForm /></Tab.Pane> },
         ]
         return (
@@ -38,5 +38,5 @@ class GiftContainer extends Component {
 function mapStateToProps({ gifts }) {
     return { gifts };
 };
-export default connect(mapStateToProps, { fetchGifts, destroyGift })(GiftContainer);
+export default connect(mapStateToProps, { fetchGifts, destroyGift, likeGift })(GiftContainer);
 

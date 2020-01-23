@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 // import GiftShow from "./GiftShow";
-const GiftList = ({gifts, handleDestroy}) => {
+const GiftList = ({gifts, handleDestroy, handleLike}) => {
  
         const renderList = Object.keys(gifts).map(giftID =>
             <Card color='green'>
@@ -15,6 +15,7 @@ const GiftList = ({gifts, handleDestroy}) => {
                 </Card.Content>
                 <Card.Content extra>
                     <Button basic size="mini" floated='right' circular color="red" onClick={() => handleDestroy(gifts[giftID].id)}>Delete</Button>
+                    <Button basic size="mini" floated='right' circular color="green" onClick={() => handleLike(gifts[giftID].id)}>like</Button>
                 </Card.Content>
              </Card>
          );
