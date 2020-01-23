@@ -3,7 +3,7 @@ Holiday Gift List manager and Funds tracker. The frontend was composed using Rea
 
 ## Installation and Usage
 
-First, clone down this repo- frontend and API included. Then run the following in your terminal: 
+First, clone down this repo- frontend and API folders are included. Then run the following in your terminal: 
     
     $ cd dear-santa-api
     $ bundle install
