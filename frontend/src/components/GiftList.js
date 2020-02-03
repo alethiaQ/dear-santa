@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button } from 'semantic-ui-react';
+import { Card, Button, Rating} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 // import GiftShow from "./GiftShow";
 const GiftList = ({gifts, handleDestroy, handleLike}) => {
@@ -16,6 +16,7 @@ const GiftList = ({gifts, handleDestroy, handleLike}) => {
                 <Card.Content extra>
                     <Button basic size="mini" floated='right' circular color="red" onClick={() => handleDestroy(gifts[giftID])}>Delete</Button>
                     <Button basic size="mini" floated='right' circular color="green" onClick={() => handleLike(gifts[giftID].id)}>like</Button>
+                    <Rating icon='heart' defaultRating={1} maxRating={5} />
                 </Card.Content>
              </Card>
          );

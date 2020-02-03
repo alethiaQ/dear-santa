@@ -28,6 +28,8 @@ class FundsController < ApplicationController
   end
 
   def increaseFunds
+    # when a gift is deleted from our bag, we add the price of that gift back into our funds total
+
     currentAmnt = Fund.last.amount.to_i
     increaseAmnt = params[:price].to_i
     newTotal = currentAmnt + increaseAmnt
