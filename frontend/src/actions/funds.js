@@ -10,9 +10,24 @@ export const setFunds = funds => {
     return { type: SET_FUNDS, funds }
 };
 // once a new gift is created, the gift obj data is sent to the updateFunds endpoint to deduct the price amount from total funds
-export const updateFunds = (gift) => {
+export const deduceFunds = (gift) => {
     return dispatch =>
-        fetch("http://localhost:3001/updateFunds", {
+        fetch("http://localhost:3001/deductFunds", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(gift)
+        })
+            .then(r => r.json())
+            .then(data => {
+                dispatch(updateFundLocal(data));
+            });
+};
+
+export const increaseFunds = (gift) => {
+    return dispatch =>
+        fetch("http://localhost:3001/increaseFunds", {
             method: "post",
             headers: {
                 "Content-Type": "application/json"

@@ -1,5 +1,5 @@
 // exporting action type as a const so its less prone to typos and unnecessary bugs
-import { updateFunds } from './funds';
+import { deduceFunds, increaseFunds } from './funds';
 export const ADD_GIFT = "ADD_GIFT"; 
 export const DELETE_GIFT = "DELETE_GIFT";
 export const SET_GIFTS = "SET_GIFTS";
