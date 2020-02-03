@@ -9,8 +9,8 @@ export const addGift = (gift) => {
     return { type: ADD_GIFT, gift };
 }; 
 
-export const deleteGift = id => {
-    return { type: DELETE_GIFT, id }
+export const deleteGift = gift => {
+    return { type: DELETE_GIFT, gift }
 }; 
 // accepts our fetched data as an argument, which we will send to our reducer
 
@@ -41,19 +41,20 @@ export const createGift = gift => {
             .then(resp => resp.json())
             .then(gift => {
                 dispatch(addGift(gift));
-                dispatch(updateFunds(gift));
+                dispatch(deduceFunds(gift));
             });
     }
 };
 
 // send delete request via fetch with gift id, then after thats successful dispatch our delete action with appropriate item 
 
-export const destroyGift = id => {
+export const destroyGift = gift => {
     return dispatch =>
-        fetch(`http://localhost:3001/gifts/${id}`, {
+        fetch(`http://localhost:3001/gifts/${gift.id}`, {
             method: "DELETE"
         }).then(() => {
-            dispatch(deleteGift(id));
+            dispatch(deleteGift(gift));
+            dispatch(increaseFunds(gift))
         });
 };
 // action creator for like attribute

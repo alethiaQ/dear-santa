@@ -14,7 +14,7 @@ const GiftList = ({gifts, handleDestroy, handleLike}) => {
                     <Card.Description>Category: {gifts[giftID].category}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <Button basic size="mini" floated='right' circular color="red" onClick={() => handleDestroy(gifts[giftID].id)}>Delete</Button>
+                    <Button basic size="mini" floated='right' circular color="red" onClick={() => handleDestroy(gifts[giftID])}>Delete</Button>
                     <Button basic size="mini" floated='right' circular color="green" onClick={() => handleLike(gifts[giftID].id)}>like</Button>
                 </Card.Content>
              </Card>

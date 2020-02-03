@@ -31,7 +31,7 @@ class FundsController < ApplicationController
     currentAmnt = Fund.last.amount.to_i
     increaseAmnt = params[:price].to_i
     newTotal = currentAmnt + increaseAmnt
-    newFund = Fund.create(amount: amount)
+    newFund = Fund.create(amount: newTotal)
     render json: newFund
   end
 

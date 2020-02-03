@@ -11,7 +11,7 @@ export default  (state = [], action) => {
             return [...state, action.gift ];
         // delete gift from collection based on ID #
         case DELETE_GIFT:
-            return [ ...state.filter(g => g.id !== action.id)
+            return [ ...state.filter(g => g.id !== action.gift.id)
             ];
    
         // after fetch grabs gift collection, we set them here to be displayed
