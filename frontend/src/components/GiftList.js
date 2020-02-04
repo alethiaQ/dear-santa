@@ -10,6 +10,7 @@ const GiftList = ({gifts, handleDestroy, handleLike}) => {
                     <Link key={giftID} to={`/gifts/${giftID}`} style={{color: 'green'}}>{gifts[giftID].name}</Link>
                 </Card.Header>
                 <Card.Content>
+                    <Card.Meta>For: {gifts[giftID].to}</Card.Meta>
                     <Card.Description>Price: ${gifts[giftID].price}</Card.Description>
                     <Card.Description>Category: {gifts[giftID].category}</Card.Description>
                 </Card.Content>
