@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { Form, Pop, Popup } from 'semantic-ui-react'
+import { Form, Popup } from 'semantic-ui-react'
 import { createFund } from '../actions/funds'; 
 import { connect } from 'react-redux';
 // import FundsCard from './FundsCard';

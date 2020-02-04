@@ -7,7 +7,7 @@ class GiftsController < ApplicationController
   end
 
   def show
-    render json: @gift.slice(:id, :name, :price, :category, :url, :img)
+    render json: @gift.slice(:id, :name, :price, :category, :url, :img, :to)
   end
 
   def create
@@ -30,7 +30,7 @@ class GiftsController < ApplicationController
   def destroy
     @gift.destroy
   end
- 
+
   private
 
   def set_gift
@@ -38,6 +38,6 @@ class GiftsController < ApplicationController
   end
 
   def gift_params
-    params.require(:gift).permit(:name, :category, :price, :url, :img, :id)
+    params.require(:gift).permit(:name, :category, :price, :url, :img, :id, :to)
   end
 end

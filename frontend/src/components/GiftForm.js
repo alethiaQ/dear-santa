@@ -8,7 +8,8 @@ import { Form, Message} from 'semantic-ui-react'
         name: "",
         price: "",
         url: "",
-        category: ""
+        category: "",
+        to: ""
         
     };
     
@@ -27,7 +28,7 @@ import { Form, Message} from 'semantic-ui-react'
             price: "",
             url: "",
             category: "",
-            
+            to: ""
         });
     }
     render() {
@@ -44,6 +45,13 @@ import { Form, Message} from 'semantic-ui-react'
                             label="Name"
                             name="name"
                             value={this.state.name}
+                            onChange={this.handleOnChange}
+                            className="form-control" 
+                        />
+                          <Form.Input fluid 
+                            label="Gift For:"
+                            name="to"
+                            value={this.state.to}
                             onChange={this.handleOnChange}
                             className="form-control" 
                         />

@@ -11,6 +11,7 @@ export default  (state = [], action) => {
             return [...state, action.gift ];
         // delete gift from collection based on ID #
         case DELETE_GIFT:
+
             return [ ...state.filter(g => g.id !== action.gift.id)
             ];
    

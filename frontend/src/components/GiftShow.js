@@ -12,6 +12,7 @@ const GiftShow = ({ match, gifts }) => {
                         <Card.Meta>Category: {gift.category}</Card.Meta>
                         <Card.Description>
                             <p>Price: ${gift.price}</p>
+                            <p>For: {gift.to}</p>
                             <p>URL: {gift.url}</p>
                             <p>Likes: {gift.likes}</p>
                         </Card.Description>
