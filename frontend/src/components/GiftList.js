@@ -19,16 +19,17 @@ class GiftList extends Component {
     };
     // sorts gifts by price 
     sortList = () => { 
-            gifts = this.props.gifts
+            let gifts = this.props.gifts
             return (
                 [...gifts].sort((a, b) =>
                     parseInt(b.price) - parseInt(a.price)
                 ));
     };      
     render() {
-
+        // will render list according to state
         const renderList = () => {
             let gifts;
+            let sorted = this.state.sorted
             if (sorted) {
                 gifts = this.sortList()
             }
@@ -46,8 +47,8 @@ class GiftList extends Component {
                         <Card.Description>Category: {gift.category}</Card.Description>
                     </Card.Content>
                     <Card.Content extra>
-                        <Button basic size="mini" floated='right' circular color="red" onClick={() => handleDestroy(gift)}> Delete </Button>
-                        <Button basic size="mini" floated='right' circular color="green" onClick={() => handleLike(gift.id)}>like</Button>
+                        <Button basic size="mini" floated='right' circular color="red" onClick={() => this.props.handleDestroy(gift)}> Delete </Button>
+                        <Button basic size="mini" floated='right' circular color="green" onClick={() => this.props.handleLike(gift.id)}>like</Button>
                         <Rating icon='heart' defaultRating={1} maxRating={5} />
                     </Card.Content>
                 </Card>
@@ -57,7 +58,7 @@ class GiftList extends Component {
         return (
             <div>
                 {/* <button onClick={sortList()}>Sort Gifts</button> */}
-                {renderList}
+                {renderList()}
                 <button onClick={this.handleClick}>Sort by Price</button>
             </div>
         );
