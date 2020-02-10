@@ -19,7 +19,7 @@ class GiftContainer extends Component {
         ]
         return (
             <div>
-                 <Route exact path={`/gifts/:id`} render={routerProps => 
+                 <Route path={`/gifts/:id`} render={routerProps => 
                     <GiftShow {...routerProps} gifts={this.props.gifts} /> }
                 />
                 <div className="container">

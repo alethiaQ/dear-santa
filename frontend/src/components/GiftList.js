@@ -36,7 +36,9 @@ class GiftList extends Component {
             else {
                 gifts = this.props.gifts
             }
+            
             return gifts.map(gift => 
+                
                 <Card color='green'>
                     <Card.Header>
                         <Link key={gift.id} to={`/gifts/${gift.id}`} style={{color: 'green'}}>{gift.name}</Link>
@@ -57,9 +59,8 @@ class GiftList extends Component {
 
         return (
             <div>
-                {/* <button onClick={sortList()}>Sort Gifts</button> */}
-                {renderList()}
                 <button onClick={this.handleClick}>Sort by Price</button>
+                {renderList()}
             </div>
         );
     };      
