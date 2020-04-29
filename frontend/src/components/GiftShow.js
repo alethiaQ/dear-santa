@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 const GiftShow = ({ match, gifts }) => {
     const gift = gifts.find(g => g.id == match.params.id)
-    debugger
+    
     return (
         <div>
             <div >

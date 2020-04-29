@@ -66,16 +66,3 @@ class GiftList extends Component {
     };      
 };
 export default GiftList;
-
-// {this.props.gifts.map(gift => (
-//     <GiftCard
-//     key={gift.id}
-//     {...gift}
-//     handleDestroy={this.props.destroyGift}
-//     />
-// ))}
-
-// renderList = (giftArray) => {        
-//     return Object.keys(giftArray).map(giftID =>
-
-//     );}   
