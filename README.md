@@ -1,6 +1,6 @@
 # dear-santa
 Holiday Gift List manager and Funds tracker. The frontend was composed using React.js/Redux.js. For the backend, data is created/stored using Rails API.
-https://www.youtube.com/watch?v=JxjiCLz4j4o&t=1s
+https://www.youtube.com/watch?v=Vx5ZsLw4AOs
 
 ## Installation and Usage
 
