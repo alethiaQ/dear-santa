@@ -21,7 +21,7 @@ class FundsController < ApplicationController
   def deductFunds
     # current total funds is being grabbed, then we are duducting the price of the added gift to our total and creating a new entry with that amount
     currentAmnt = Fund.last.amount.to_i
-    deductAmnt = params[:price]
+    deductAmnt = params[:amount]
     amount = currentAmnt - deductAmnt.to_i
     newFund = Fund.create(amount: amount)
     render json: newFund
@@ -31,7 +31,7 @@ class FundsController < ApplicationController
     # when a gift is deleted from our bag, we add the price of that gift back into our funds total
 
     currentAmnt = Fund.last.amount.to_i
-    increaseAmnt = params[:price].to_i
+    increaseAmnt = params[:amount].to_i
     newTotal = currentAmnt + increaseAmnt
     newFund = Fund.create(amount: newTotal)
     render json: newFund

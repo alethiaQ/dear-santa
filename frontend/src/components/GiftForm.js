@@ -5,12 +5,19 @@ import { Form, Message} from 'semantic-ui-react'
 
  class GiftForm extends Component {
     state = {
-        name: "",
-        price: "",
-        url: "",
+        // name: "",
+        // price: "",
+        // url: "",
+        // category: "",
+        // to: ""
+        title: "",
+        description: "",
+        due: "",
+        priority: "",
+        amount: "",
         category: "",
-        to: ""
-        
+
+
     };
     
     handleOnChange = event => {
@@ -24,12 +31,13 @@ import { Form, Message} from 'semantic-ui-react'
         // action from prop used as a function that will dispatch this state to our reducers
         this.props.createGift({ ...this.state });
         this.setState({
-            name: "",
-            price: "",
-            url: "",
+            title: "",
+            description: "",
+            due: "",
+            priority: "",
+            amount: "",
             category: "",
-            to: ""
-        });
+            });
     }
     render() {
         return (
@@ -42,32 +50,32 @@ import { Form, Message} from 'semantic-ui-react'
                  <Form size='tiny' onSubmit={this.handleSubmit}>
                     <Form.Group widths='equal'>
                         <Form.Input fluid 
-                            label="Name"
-                            name="name"
-                            value={this.state.name}
+                            label="Title"
+                            name="title"
+                            value={this.state.title}
                             onChange={this.handleOnChange}
                             className="form-control" 
                         />
                           <Form.Input fluid 
-                            label="Gift For:"
-                            name="to"
-                            value={this.state.to}
+                            label="description"
+                            name="description"
+                            value={this.state.description}
                             onChange={this.handleOnChange}
                             className="form-control" 
                         />
                         <Form.Input fluid
-                        label="Price"
-                         type="text"
-                        name="price"
-                        value={this.state.price}
+                        label="Amount"
+                        // type="text"
+                        name="amount"
+                        value={this.state.amount}
                         onChange={this.handleOnChange}
                         className="form-control"
                         />
                         <Form.Input fluid
-                        label="Item URL"
+                        label="Due"
                          type="text"
-                        name="url"
-                        value={this.state.url}
+                        name="due"
+                        value={this.state.due}
                         onChange={this.handleOnChange}
                         className="form-control"
                         />
@@ -75,12 +83,20 @@ import { Form, Message} from 'semantic-ui-react'
                     <Form.Group inline>
                         <label>Category:</label>
                         <select value={this.state.category} onChange={this.handleOnChange} name="category">
-                            <option value="parents">Parents</option>
-                            <option value="friends">Friends</option>
-                            <option value="family">Family</option>
-                            <option value="kids">Kids</option>
-                            <option value="other">Other</option>
+                            <option value="bills">Bills</option>
+                            <option value="food">Food/Groceries</option>
+                            <option value="clothes">Clothes/Shopping</option>
+                            <option value="gas">Gas</option>
+                            <option value="cats">Cats</option>
 
+                        </select>              
+                    </Form.Group>
+                    <Form.Group inline>
+                        <label>Priority:</label>
+                        <select value={this.state.priority} onChange={this.handleOnChange} name="priority">
+                            <option value="important">Important</option>
+                            <option value="neutral">Kind-of</option>
+                            <option value="low">No</option>
                         </select>              
                     </Form.Group>
                   

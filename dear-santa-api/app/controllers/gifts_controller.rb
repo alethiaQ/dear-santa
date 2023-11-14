@@ -7,7 +7,7 @@ class GiftsController < ApplicationController
   end
 
   def show
-    render json: @gift.slice(:id, :name, :price, :category, :url, :img, :to)
+    render json: @gift.slice(:id, :title, :priority, :category, :due, :amount, :description)
   end
 
   def create
@@ -38,6 +38,6 @@ class GiftsController < ApplicationController
   end
 
   def gift_params
-    params.require(:gift).permit(:name, :category, :price, :url, :img, :id, :to)
+    params.require(:gift).permit(:title, :priority, :category, :due, :amount, :description)
   end
 end

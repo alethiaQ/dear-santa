@@ -25,16 +25,16 @@ import { connect } from 'react-redux';
         return (
             <div> 
                 <Popup trigger={
-                    <Form size='tiny' onSubmit={this.handleSubmit}>
+                    <Form size='small' onSubmit={this.handleSubmit} >
                     
                         <Form.Input fluid
-                            label="Funds $$"
+                            label="Funds"
                             name="amount"
                             value={this.state.amount}
                             onChange={this.handleOnChange}
                             className="form-control"
                         />
-                        <input type="submit" />
+                        <input type="submit" style={{margin: 2}}/>
                     
                     </Form>
                 } >

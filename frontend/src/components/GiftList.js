@@ -22,7 +22,7 @@ class GiftList extends Component {
             let gifts = this.props.gifts
             return (
                 [...gifts].sort((a, b) =>
-                    parseInt(b.price) - parseInt(a.price)
+                    parseInt(b.amount) - parseInt(a.amount)
                 ));
     };      
     render() {
@@ -41,11 +41,11 @@ class GiftList extends Component {
                 
                 <Card color='green'>
                     <Card.Header>
-                        <Link key={gift.id} to={`/gifts/${gift.id}`} style={{color: 'green'}}>{gift.name}</Link>
+                        <Link key={gift.id} to={`/gifts/${gift.id}`} style={{color: 'green'}}>{gift.title}</Link>
                     </Card.Header>
                     <Card.Content>
-                        <Card.Meta>For: {gift.to}</Card.Meta>
-                        <Card.Description>Price: ${gift.price}</Card.Description>
+                        <Card.Meta> {gift.priority}</Card.Meta>
+                        <Card.Description>Price: ${gift.amount}</Card.Description>
                         <Card.Description>Category: {gift.category}</Card.Description>
                     </Card.Content>
                     <Card.Content extra>
