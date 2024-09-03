@@ -57,7 +57,7 @@ import { Form, Message} from 'semantic-ui-react'
                             className="form-control" 
                         />
                           <Form.Input fluid 
-                            label="description"
+                            label="Description"
                             name="description"
                             value={this.state.description}
                             onChange={this.handleOnChange}
