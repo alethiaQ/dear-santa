@@ -95,8 +95,8 @@ import { Form, Message} from 'semantic-ui-react'
                         <label>Priority:</label>
                         <select value={this.state.priority} onChange={this.handleOnChange} name="priority">
                             <option value="important">Important</option>
-                            <option value="neutral">Kind-of</option>
-                            <option value="low">No</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="low">Low</option>
                         </select>              
                     </Form.Group>
                   
